@@ -13,6 +13,9 @@ secretGenerator:
     files:
       - roles-example.json
 
+generatorOptions:
+  disableNameSuffixHash: true
+
 transformers:
   - |-
     apiVersion: builtin
