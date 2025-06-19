@@ -27,7 +27,8 @@ spec:
     authConfig:
       authType: LOCAL
     storage:
-      type: ephemeral
+      type: persistent-claim
+      storageClassName: ibmc-vpc-block-10iops-tier
     tls:
       trustedCertificates:
         - secretName: letsencrypt-chain
