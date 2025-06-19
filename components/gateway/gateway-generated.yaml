@@ -4,7 +4,7 @@ metadata:
   name: "gw1-default-gw"
 spec:
   license:
-    accept: true
+    accept: false
     license: "L-CYBH-K48BZQ"
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
@@ -32,13 +32,19 @@ spec:
                     key: tls.crt
                     name: "gw1-default-gw-certs"
   tls:
-    secretName: gw1-default-gw-certs
-    serverCertificate: tls.crt
-    caCertificate: tls.crt
-    key: tls.key
-    trustedCertificates:
-      - secretName: letsencrypt-chain
-        certificate: x1-root.crt
+    caSecretName: "gw1-default-gw-certs"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: "gw1-default-gw-certs"
+  labels:
+    app: "gw1-default-gw"
+type: Opaque
+stringData:
+  # Provide CA certificate and key in PEM format
+  tls.crt: <tls-certificate>
+  tls.key: <tls-key>
 ---
 apiVersion: v1
 kind: Secret
@@ -48,5 +54,4 @@ metadata:
     app: "gw1-default-gw"
 type: Opaque
 stringData:
-  apiKey: "f419642f-c9d2-4eff-920d-f14e7db1c5c1"
-  
+  apiKey: "7943b95e-6131-43bf-89dd-203aedc65362"
