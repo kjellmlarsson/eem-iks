@@ -8,9 +8,9 @@ resources:
 secretGenerator:
 - name: letsencrypt-chain
   files:
-  - x1-root.crt=x1-root.pem
-  - r10.crt=r10.pem
-  - r11.crt=r11.pem
+  - x1-root.crt=letsencrypt/x1-root.pem
+  - r10.crt=letsencrypt/r10.pem
+  - r11.crt=letsencrypt/r11.pem
   type: "Opaque"
 
 generatorOptions:
