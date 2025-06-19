@@ -38,9 +38,10 @@ spec:
   tls:
     secretName: gw1-default-gw-certs
     serverCertificate: tls.crt
+    caCertificate: tls.crt
     key: tls.key
-    caSecretName: letsencrypt-chain
-    caCertificate: x1-root.crt
+    #caSecretName: letsencrypt-chain
+    #caCertificate: x1-root.crt
   #  trustedCertificates:
   #    - secretName: letsencrypt-chain
   #      certificate: x1-root.crt
