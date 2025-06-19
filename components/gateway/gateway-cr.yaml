@@ -1,0 +1,61 @@
+apiVersion: events.ibm.com/v1beta1
+kind: EventGateway
+metadata:
+  name: "gw1-default-gw"
+spec:
+  license:
+    accept: true
+    license: "L-CYBH-K48BZQ"
+    metric: "VIRTUAL_PROCESSOR_CORE"
+    use: "EventAutomationNonProduction"
+  managerEndpoint: "https://eem.qs-eem-server.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway"
+  maxNumKafkaBrokers: 20
+  gatewayGroupName: "gw1"
+  gatewayID: "default-gw"
+  replicas: 2
+  endpoints:
+    - name: gateway
+      host: gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
+      class: public-iks-k8s-nginx
+  template:
+    pod:
+      spec:
+        containers:
+          - name: egw
+            env:
+              - name: BACKEND_CA_CERTIFICATES
+                value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQduit/8zEV/tgKCNHWM6EbDANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjE5MTAwOTE4\nWhcNMjYwNjE5MTAwOTE4WjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDIdT3vTh7mU/1xAiLr\nFiy6854fVcf6YfZpcRXmNisz54AUKx/hzl+gs6QJSxWcyApQxwQ+vpXLFt+Vzj18\nGwmsVI81w9EQt045vMNWpZs36YIDQ32m+KR4x5LMUwcXelL7mMEQeCwAc9pM5tmS\nXO+Vkhexl3H0S48NHFKGTMxsItU0VIsgf9S/wo5yCyJI+mA/roCZElp8bjcDdUPJ\nlvjKXtOqgkSVnQmn3MdgFXwCVyuMPf4RLf2YdgVMqoBvUqzNYh3ho6ycW60FIG7o\nNpTiLOH9z7YQOCCxPAuvawaKvhAUnAH4V6Tjx1PruGcB/dEfkeZrLfkomETWFYF+\n2bG1AgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBQV/pyPqguGR7/tpusjJSEY/oRszjANBgkqhkiG9w0BAQsFAAOCAQEA\nplQ8U3iGltZdNLOeem8aY0nAVdvMOxwhPB5uzEduKkQ4RohA9Q96Vv3C4UzovePR\nKdmMcAVZfzs0cprP2LGLD7vRtH941sALC2nBpOkLIc0d4H7LlaX0gDbCHsDdaNnt\n2hi8e8lyowJWVflV5+MCLTVGyuPw+q1V6VX1oPh+XHPMaqmOk5iqsHqDNEtTRw/0\n9BzePCaAEBB1c1XdXk+53ViAv3eD1IhsVJi9oENqA+Dq/i1rZYrqs04LgcR4vcLV\n5igGFTOQsUwH5yv5p/i7tQiR1BHhGSYKyTsuFwfDuJRlmLb4z1jfFBt+qfhX6vIW\nS9X/xCEJMqrdyJNqgeMzIg==\n-----END CERTIFICATE-----\n"
+              - name: API_KEY
+                valueFrom:
+                  secretKeyRef:
+                    key: apiKey
+                    name: "gw1-default-gw"
+              - name: GATEWAY_TRUST_PEM
+                valueFrom:
+                  secretKeyRef:
+                    key: tls.crt
+                    name: "gw1-default-gw-certs"
+  tls:
+    caSecretName: "gw1-default-gw-certs"
+---
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  name: "gw1-default-gw-certs"
+#  labels:
+#    app: "gw1-default-gw"
+#type: Opaque
+#stringData:
+#  # Provide CA certificate and key in PEM format
+#  tls.crt: <tls-certificate>
+#  tls.key: <tls-key>
+#---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: "gw1-default-gw"
+  labels:
+    app: "gw1-default-gw"
+type: Opaque
+stringData:
+  apiKey: "c3277f9b-5305-4768-9961-d9ac16e6d048"

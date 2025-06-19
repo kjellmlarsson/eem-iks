@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: instances
+spec:
+  generators:
+  - list:
+      elements:
+        - name: common
+          namespace: ibm-event-automation
+          sync-wave: "200"
+        - name: eventmanager
+          namespace: ibm-event-automation
+          sync-wave: "200"
+        - name: eventgateway
+          namespace: ibm-event-automation
+          sync-wave: "200"
+  template:
+    metadata:
+      name: '{{name}}'
+      labels:
+        group: applications
+      annotations:
+        argocd.argoproj.io/sync-wave: '{{sync-wave}}'
+    spec:
+      project: default
+      source:
+        path: 'envs/iks/nonprod/{{name}}/'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          selfHeal: true
+      ignoreDifferences:
