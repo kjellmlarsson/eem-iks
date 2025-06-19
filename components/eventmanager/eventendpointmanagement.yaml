@@ -28,6 +28,10 @@ spec:
       authType: LOCAL
     storage:
       type: ephemeral
+    tls:
+      trustedCertificates:
+        secretName: letsencrypt-chain
+        certificate: x1-root.crt
     template:
       pod:
         spec:
