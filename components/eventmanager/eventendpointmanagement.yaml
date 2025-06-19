@@ -30,8 +30,8 @@ spec:
       type: ephemeral
     tls:
       trustedCertificates:
-        secretName: letsencrypt-chain
-        certificate: x1-root.crt
+        - secretName: letsencrypt-chain
+          certificate: x1-root.crt
     template:
       pod:
         spec:
