@@ -35,10 +35,10 @@ spec:
                   secretKeyRef:
                     key: tls.crt
                     name: "gw1-default-gw-certs"
-  #tls:
-  #  secretName: gw1-default-gw-certs
-  #  serverCertificate: tls.crt
-  #  key: tls.key
+  tls:
+    secretName: gw1-default-gw-certs
+    serverCertificate: tls.crt
+    key: tls.key
   #  trustedCertificates:
   #    - secretName: letsencrypt-chain
   #      certificate: x1-root.crt
