@@ -52,4 +52,5 @@ metadata:
     app: "gw1-default-gw"
 type: Opaque
 stringData:
-  apiKey: "f419642f-c9d2-4eff-920d-f14e7db1c5c1"
+  #apiKey: "f419642f-c9d2-4eff-920d-f14e7db1c5c1"
+  apiKey: 259f5c5c-43c7-4038-a7b7-83964f3e7702
