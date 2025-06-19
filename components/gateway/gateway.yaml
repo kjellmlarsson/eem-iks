@@ -4,7 +4,7 @@ metadata:
   name: "gw1-default-gw"
 spec:
   license:
-    accept: false
+    accept: true
     license: "L-CYBH-K48BZQ"
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
