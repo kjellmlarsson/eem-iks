@@ -5,7 +5,7 @@ metadata:
 spec:
   secretTemplate:
     labels:
-      app: "gw1-default-gw
+      app: "gw1-default-gw"
   secretName: gw1-default-gw-certs
   duration: 2160h0m0s # 90d
   renewBefore: 360h0m0s # 15d
