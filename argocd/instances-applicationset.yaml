@@ -8,10 +8,10 @@ spec:
       elements:
         - name: common
           namespace: ibm-event-automation
-          sync-wave: "200"
+          sync-wave: "400"
         - name: eventmanager
           namespace: ibm-event-automation
-          sync-wave: "200"
+          sync-wave: "400"
         #- name: eventgateway
         #  namespace: ibm-event-automation
         #  sync-wave: "200"

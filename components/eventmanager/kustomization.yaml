@@ -3,3 +3,40 @@ kind: Kustomization
 
 resources:
   - eventendpointmanagement.yaml
+
+secretGenerator:
+  - name: eventendpointmanagement-ibm-eem-user-credentials
+    files:
+      - users-example.json
+
+  - name: eventendpointmanagement-ibm-eem-user-roles
+    files:
+      - roles-example.json
+
+transformers:
+  - |-
+    apiVersion: builtin
+    kind: PatchTransformer
+    metadata:
+      name: add-annotation-user-credentials-secret
+    patch: |-
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: eventendpointmanagement-ibm-eem-user-credentials
+        annotations:
+          argocd.argoproj.io/sync-options: ServerSideApply=true
+      type: Opaque
+  - |-
+    apiVersion: builtin
+    kind: PatchTransformer
+    metadata:
+      name: add-annotation-roles-secret
+    patch: |-
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: eventendpointmanagement-ibm-eem-user-roles
+        annotations:
+          argocd.argoproj.io/sync-options: ServerSideApply=true
+      type: Opaque
