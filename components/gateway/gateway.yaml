@@ -30,11 +30,11 @@ spec:
                   secretKeyRef:
                     key: apiKey
                     name: "gw1-default-gw"
-              - name: GATEWAY_TRUST_PEM
-                valueFrom:
-                  secretKeyRef:
-                    key: tls.crt
-                    name: "gw1-default-gw-certs"
+              #- name: GATEWAY_TRUST_PEM
+              #  valueFrom:
+              #    secretKeyRef:
+              #      key: tls.crt
+              #      name: "gw1-default-gw-certs"
   tls:
     secretName: gw1-default-gw-certs
     serverCertificate: tls.crt
