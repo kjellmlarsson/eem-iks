@@ -35,7 +35,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: tls.crt
-                    name: "ggw1-default-gw-certs"
+                    name: "gw1-default-gw-certs"
     
 tls:
     secretName: gw1-default-gw-certs
