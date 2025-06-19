@@ -7,11 +7,11 @@ resources:
 secretGenerator:
   - name: eventendpointmanagement-ibm-eem-user-credentials
     files:
-      - users-example.json
+      - users-credentials.json
 
   - name: eventendpointmanagement-ibm-eem-user-roles
     files:
-      - roles-example.json
+      - user-mapping.json
 
 generatorOptions:
   disableNameSuffixHash: true
