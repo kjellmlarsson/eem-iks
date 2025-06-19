@@ -41,8 +41,8 @@ spec:
     caCertificate: tls.crt
     key: tls.key
     trustedCertificates:
-      - secretName: eventendpointmanagement-ibm-eem-manager
-        certificate: ca.crt
+      - secretName: letsencrypt-chain
+        certificate: x1-root.crt
 ---
 apiVersion: v1
 kind: Secret
