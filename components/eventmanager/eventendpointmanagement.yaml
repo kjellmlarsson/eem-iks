@@ -15,7 +15,6 @@ spec:
       - name: ui
         host: qs-eem-ui.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
         class: public-iks-k8s-nginx
-        
       - name: gateway
         host: qs-eem-gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
         class: public-iks-k8s-nginx
@@ -25,6 +24,12 @@ spec:
       - name: server
         host: eem.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
         class: public-iks-k8s-nginx
+        # annotations:
+        #   nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+        #   nginx.ingress.kubernetes.io/proxy-ssl-verify: on
+        #   nginx.ingress.kubernetes.io/proxy-ssl-protocols: TLSv1.3
+        #   nginx.ingress.kubernetes.io/proxy-ssl-secret: default/
+        #   nginx.ingress.kubernetes.io/configuration-snippet
     authConfig:
       authType: LOCAL
     storage:
