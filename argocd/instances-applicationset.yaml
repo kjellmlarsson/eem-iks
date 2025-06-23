@@ -9,9 +9,9 @@ spec:
         - name: common
           namespace: ibm-event-automation
           sync-wave: "400"
-        #- name: eventmanager
-        #  namespace: ibm-event-automation
-        #  sync-wave: "400"
+        - name: eventmanager
+          namespace: ibm-event-automation
+          sync-wave: "400"
         #- name: gateway
         #  namespace: ibm-event-automation
         #  sync-wave: "200"
