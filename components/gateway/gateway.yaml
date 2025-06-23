@@ -8,9 +8,8 @@ spec:
     license: "L-CYBH-K48BZQ"
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
-  managerEndpoint: https://eem.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway
-  #managerEndpoint: https://eventendpointmanagement-ibm-eem-manager.ibm-event-automation.svc.local:7006/gateway
-  maxNumKafkaBrokers: 3
+  managerEndpoint: "https://eem.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway"
+  maxNumKafkaBrokers: 20
   gatewayGroupName: "gw1"
   gatewayID: "default-gw"
   replicas: 1
@@ -20,9 +19,8 @@ spec:
         containers:
           - name: egw
             env:
-              # Ca from eventendpointmanagement-ibm-eem-manager-ca 
               - name: BACKEND_CA_CERTIFICATES
-                value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQTm4/NTbPwI9SE/5oL+/+czANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjE5MTM0NzI3\nWhcNMjYwNjE5MTM0NzI3WjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDm2gbcKshuMR1AaoZg\nc002BXT52eWwwQESf6UUlotT7b+a2Fp4VHcmDBkDs6dPRSBi/xibbFHATEQHo559\n2uUctMFZzz4kuYK0AHAJf/zjDqsUnil7d9Tm5fUscPNbs5scDJaKlnVGxebX0niQ\nS3uv9geN9F1L7y7h0up4iqOFMbY6lUMJvp6GuvtBhMyIGLfvz5chtmp1TM/WiIqm\nugYF/1LQcAcg0oSCN3OiHkWNl4zZDFF6pmS84r5srR3S70mdqIgZwGWRkD23V/AY\nEapDxjhGhOz7j2BEiBslQfecMBi13SQ8LCQCUBDujj+LBohiuSnhyx4lzA83QgmK\ncx3DAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBT3ezxuAAR8R9lJ1ya/yGKZs/or7zANBgkqhkiG9w0BAQsFAAOCAQEA\ngZzJplXgQdpFs/kt//zL9/nTm4nizE+PvzjPbE9YCcQY/hLYiq1Y6YpUjHi3tGBK\nMGV51cKhbDFVPBtGBmLF0h/DvmcekiLq/bgfQLTmAsyNNnKL0NunjTtlag8GLFXM\nWAH9PWyWiBwih/66gcmQeqbVLtO2nx+xWUx5WaY/wmq/dgBes1EyzkrG9ntgRTu/\nqrPEj3meA+5gThztq+RI31OE2g5hmanOTePc7y2wQAQnTLUI4YJtBoDAnm+15/17\nsJ1twaqR3QfAjGN/EB3eFsmSnxutYvBQCjneEJFpJXNmDKESdPnIJ7Gyin4rqfy/\n4w0uDmds5k7CczeiutE7YA==\n-----END CERTIFICATE-----\n"
+                value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQSASK478CIf8TDe2xO1KMrDANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjIzMDkyMTMx\nWhcNMjYwNjIzMDkyMTMxWjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTF+6h536F8OjGnD4Z\npXZOWK/hLGSWhAYV/vPEt/ZZWGpi3dvirWu+LT3eQF8AGhhJL6XNusX89QcNWRbY\nOLY876w+/ot8BxvTkpuFCL679GZQ59wMU1OJIucgw5IHANcOkPLyHMvsxuqqaxzv\noUF8vbfdYqh+mvny0SbjrFE9EQCdgdpCKm/0eKZWLPRyDNkfKoOU/qABjfszJU6M\nVROiLArbSP4FG0xTsIIDlv7YbsRUI+KDZlExDE2M40Uw0Qfqt78GuCKNeYb8tQdo\nnaoC1SKIOMGuuVY024UCHSzmF5QuNtJbfPBcXnIiU+tTlGdVVqzHDglPKU/8hJRW\naigrAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBTxrvfZM5v28b6uUFxH5XFRiGatTTANBgkqhkiG9w0BAQsFAAOCAQEA\nI1IYSJ6B8HeN98/15LaQoaqYW/sbafcZR2Vbi9esZPXf1voKNyqXpbaIXwdUZYYc\nTyeKOeTSR2s6VptdqQooJsQlzUr3P9HlP8yOYaRIxGDcJsZCdmDeS/njqSTk0Bts\nktxkWkCiQjH+xRbJud/eDF7UKl6BKyQ6jaQmIB+e1r0yL5z/enF4E0UWpFwvVjVl\nqGTmaAl+jC8FC8lNhAUClIpC7Wcx4lXeMRdX6aAs3ynL9RF28Dd6Z/s5gRmYgEMp\ns4SaTrpz5hufcS5kZzDjX4mKb+J/oT2xGGVsUV6TqKPbo5NUdpTL69OIJ24IoJaP\nwz/HZmYW0SPYGpnixDf4sw==\n-----END CERTIFICATE-----\n"
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
@@ -42,19 +40,65 @@ spec:
   # Provide either a server certificate or a CA certificate to be used for creating certificates. 
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
-      caSecretName: root-secret
-      caCertificate: ca.crt 
-      key: tls.key
-      trustedCertificates:
-        - secretName: letsencrypt-chain
-          certificate: x1-root.crt
-      #secretName: gw1-default-gw-certs
-      #serverCertificate: tls.crt
-      #caCertificate: tls.crt
-      #key: tls.key
-      #trustedCertificates:
-      #  - secretName: letsencrypt-chain
-      #    certificate: x1-root.crt
+    caSecretName: "gw1-default-gw-certs"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: "gw1-default-gw-certs"
+  labels:
+    app: "gw1-default-gw"
+type: Opaque
+stringData:
+  # Provide CA certificate and key in PEM format
+  tls.crt: |
+          -----BEGIN CERTIFICATE-----
+          MIIDBTCCAe2gAwIBAgIRAMp8ZUnQb69Ta6S69+nJDcEwDQYJKoZIhvcNAQELBQAw
+          HDEaMBgGA1UEAxMRZWVtLXNlbGZzaWduZWQtY2EwHhcNMjUwNjE5MTgwMjQwWhcN
+          MjUwOTE3MTgwMjQwWjAcMRowGAYDVQQDExFlZW0tc2VsZnNpZ25lZC1jYTCCASIw
+          DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJSKjD5tCvAXB+TYMSAgCxl7pXSe
+          f5qYF4j6TJC/gxoD6lD5I/cDgPqGR5o82HGa/usg5oUAL7fLQw92pEQFBcSmcvIk
+          9C/8gPcGUHFOAW/gzZ24WqvxGVPmUWdoweTeX/mZAwZeWJsNzse9QF3NKgEy0scR
+          KpPy5iuMVWtdy4poQLobXzqmH8YY27DCBrZ6rPgjiPkdGZ0BhNF4mrc/7JC9VENR
+          QWEMSx/xCCE4datQ+NeRMzfmXLYMekQzSG+28ZBkuKpyYChgppe4k6DbNjDdGoTG
+          IPktQaGLslwQXz1TZY3T0cJIIZQDnbLRKHnR9aqXUTLA2DcQwo+6pDmCLfcCAwEA
+          AaNCMEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYE
+          FET4JbjaAd0TZ7TKfue/IV3uN8ijMA0GCSqGSIb3DQEBCwUAA4IBAQAd/RudwdwR
+          99rxd3ZsWbg14/IbzOLUU/ELzegFJ6g3MdGhCX4HzY81jYB94vt0h3yBEpVjGvFq
+          oKaqzahAr1fY5dyrKPxlXqE/uRYgSN5LSuC0cjTOaOjCRPTTSIVO/dtQL+9+SkLH
+          i7O0ifZd19dTyPcwIu3IHUUiHYN4oWoCcmzYl1/TLXVOuKhN0f0mMafwo/OzxgBM
+          V7evWmiYwvPACo3fWwVXUJUqeZHcZ+54IcJRo5M0UNBfCjCz+8XeWHsLhQ0neNL2
+          i4W+EeOgM9vqr+LC0K66FnLdwec7DI22NgCjs/B4O8WKnd/8LWmlyN1zeYNLMJ9i
+          YBiVFHF1QXnO
+          -----END CERTIFICATE-----
+  tls.key: |
+          -----BEGIN RSA PRIVATE KEY-----
+          MIIEowIBAAKCAQEAlIqMPm0K8BcH5NgxICALGXuldJ5/mpgXiPpMkL+DGgPqUPkj
+          9wOA+oZHmjzYcZr+6yDmhQAvt8tDD3akRAUFxKZy8iT0L/yA9wZQcU4Bb+DNnbha
+          q/EZU+ZRZ2jB5N5f+ZkDBl5Ymw3Ox71AXc0qATLSxxEqk/LmK4xVa13LimhAuhtf
+          OqYfxhjbsMIGtnqs+COI+R0ZnQGE0Xiatz/skL1UQ1FBYQxLH/EIITh1q1D415Ez
+          N+Zctgx6RDNIb7bxkGS4qnJgKGCml7iToNs2MN0ahMYg+S1BoYuyXBBfPVNljdPR
+          wkghlAOdstEoedH1qpdRMsDYNxDCj7qkOYIt9wIDAQABAoIBAAJCh+3Vx5R2z4W4
+          bSnD4wmhJHMPsEKXEaLhptfXfqIMw1ej49uLJHXY/9xOptE2gvdY9SaWJchGtAiO
+          Q+NgLZ1b8X/kUi3it+0BC6j6NjJinmUS93NTOux868Vq6qn6YPy2E72h/fhlXSsT
+          xzxGGnG2FLxt4MmZBDvhhVW+MaR8nlbCV9cKZXD9SzbTIYOKtUJ8SmNkjGvNppYP
+          5yJpvplfkT5XUpMcTgfJ7GAdnVOpUpWITmXC0/k9grFkrMafo3KMZTNM+lsMmzck
+          BcZ4fkiUWmCDjW7rah8hTa2h5+fERAAAheghYCBF4qbycy65KjRIbO8qmFGirYZO
+          7t9hZJ0CgYEAwybr2UYgAM1E3tw5zCarfyZtxrOg/9pxk9Xaw9EmR6eymkN2wPpr
+          8FhlrDB1MThByb1vNtbE9YA6oRp4Ne0WuoRRyyUqLw/x3iVGcCXKW8Op5b80NRwO
+          zC2tY1NXaCGJljXMTDgadHlL3xFy5u6wGYLJGNzG4vxddBSA3CxI9WMCgYEAwtsj
+          tJ9G0WOO4y36AuTY5RJvbER5V6zd23PoW2lno3x8G4icqhEfTPIj8Aolp6GtK4t2
+          PJ+cKXsEuH0P9XBhu5MqcsxDyW8dV9D2DqrOyM1RjPtb+vbaAWhaJidT58ToQh3Z
+          znkRkcJDh1MynJKUoNv1Adga/bKtgcMNwc8ho10CgYBo4D3XYkxIogflDM0y3YVE
+          q85K/rYDSc3H+SG8ImZEE+dz59WmF+5yF89sHg6dCPKyDE/8VKc8mFDpy2PW9zdD
+          vWCHn81vxU3iaH3WPzjk394qTfssn4uERvfrbRqIJ53dT8QfIfd1qMoRczsgyB1z
+          WEniRqPL0HwYqfwmVtZOqQKBgGkGrMwiPY2G1/FjSqpcpvtxYFU+4xh6uGoco1UC
+          DzZzVoGQtMCF0hUrPmuXTIx5/FjIJsauUQGaqQS3g+6K0GLGA880giUEmxBGNRna
+          vvJEmHwgz4cJnp+7mzuNXxBBdd6NMGS1pN6nkrZSBamW6D170SdZT9MGh7a1Z6ja
+          +AqRAoGBAIJsMm/JRfX7D/5ZAPMIhEBfPMIqqT+HEpQr+QTPF+bPps9hZ6eUzz6I
+          LUE89x6KFkQWF5JOyDAZI2aa23k5EgbAQ0NQUCVQJM56g6d12GSG5wCgJhesjgJ1
+          /u8Ebf869qwKLmeu9d0mc+93yMTjSzwI/AOf9bAR82wydkQ6QtBr
+          -----END RSA PRIVATE KEY-----
 ---
 apiVersion: v1
 kind: Secret
@@ -64,6 +108,5 @@ metadata:
     app: "gw1-default-gw"
 type: Opaque
 stringData:
-  # apiKey: "f419642f-c9d2-4eff-920d-f14e7db1c5c1"
-  apiKey: 430ccc5d-b960-4234-bc86-5aee7198dae3
+  apiKey: "2a067c4e-f323-45dd-9f30-eab0eb0c0b77"
   
