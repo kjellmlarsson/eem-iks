@@ -61,9 +61,12 @@ Create an image pull secret to access the IBM container registry
 
 Update the event manager cr sample with correct ingress subdomain, ingress class and storage class names here: [eventendpointmanagement.yaml](./components/eventmanager/eventendpointmanagement.yaml)
 
-Sample secrets are created with admin, author and viewer users. Remove these and create them manually if you don't want these cleartext users and passwords in your repo. You can change this here: [./components/eventmanager/kustomization.yaml](./components/eventmanager/kustomization.yaml)
+* Authentication *
+Authentication to the Event Manager UI can be either local, with users, passwords and roles stored in Kubernetes secrets as yaml, or using OIDC.
 
-Add local users to be able to login to the UI. See https://ibm.github.io/event-automation/eem/security/managing-access/ and https://ibm.github.io/event-automation/eem/security/user-roles/
+Sample secrets for local a are created with admin, author and viewer users. Remove these and create them manually if you don't want these cleartext users and passwords in your repo. You can change this here: [./components/eventmanager/kustomization.yaml](./components/eventmanager/kustomization.yaml)
+
+For manually adding local users, see. See https://ibm.github.io/event-automation/eem/security/managing-access/ and https://ibm.github.io/event-automation/eem/security/user-roles/
 
 Login to the UI with one of the sample users.
 
