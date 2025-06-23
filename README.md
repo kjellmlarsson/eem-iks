@@ -1,15 +1,29 @@
 # eem-iks
 
-EEM Documentation: https://ibm.github.io/event-automation/eem/
+This repo contains Kubernetes manifests and ArgoCD config to install Event Endpoint Management on a Kubernetes cluster. Use this to either setup automated install of EEM with ArgoCD or use the manifests and manually apply them.
+
+The full EEM Documentation with detailed instructions is available here: https://ibm.github.io/event-automation/eem/
+
+An overview of the installation steps is available here: https://ibm.github.io/event-automation/eem/installing/overview/
 
 EEM CR examples: https://github.com/IBM/ibm-event-automation/tree/main/event-endpoint-management
 
-# Install Argo CD
+# Install ArgoCD
+
+Install ArgoCD to adopt a GitOps approach and automate installation.  
 
 ```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
+
+Fork this repo and update the repoURL in [argocd/bootstrap.yaml](./argocd/bootstrap.yaml), then apply the file to your cluster to create Argo Applications.
+
+# Install Cert-Manager if not available
+
+A certificate manager is required to automatically manage the process of creating, renewing and using Event Endpoint Management internal and system-to-system certificates. It is also used by default for managing Event Endpoint Management certificates that are visible to clients and users, simplifying their configuration.
+
+`kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.0/cert-manager.yaml`
 
 # EEM Install
 
@@ -17,12 +31,7 @@ See https://ibm.github.io/event-automation/eem/installing/installing-on-kubernet
 
 Prereq is a Kubernetes platforms that support the Red Hat Universal Base Images (UBI) containers, versions 1.25 to 1.32
 
-## Install Cert-Manager if not available
-
-`kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.0/cert-manager.yaml`
-
-## Install EEM Operator
-
+## 1. Install EEM Operator
 
 The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
 
@@ -37,7 +46,7 @@ The Event Endpoint Management operator requires the following cluster-scoped per
 
 `helm install eventendpointmanagement ibm-helm/ibm-eem-operator -n "ibm-event-automation`
 
-## Create Event Manager instance
+## 2. Create Event Manager instance
 
 Create an image pull secret to access the IBM container registry
 
@@ -53,7 +62,7 @@ Add local users to be able to login to the UI. See https://ibm.github.io/event-a
 
 Login to the UI with one of the sample users.
 
-## Create Event Gateway instance
+## 3. Create Event Gateway instance
 
 Login to the Event manager UI and 
 

@@ -42,65 +42,9 @@ spec:
   # Provide either a server certificate or a CA certificate to be used for creating certificates. 
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
-    caSecretName: "gw1-default-gw-certs"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: "gw1-default-gw-certs"
-  labels:
-    app: "gw1-default-gw"
-type: Opaque
-stringData:
-  # Provide CA certificate and key in PEM format
-  tls.crt: |
-          -----BEGIN CERTIFICATE-----
-          MIIDBTCCAe2gAwIBAgIRAMp8ZUnQb69Ta6S69+nJDcEwDQYJKoZIhvcNAQELBQAw
-          HDEaMBgGA1UEAxMRZWVtLXNlbGZzaWduZWQtY2EwHhcNMjUwNjE5MTgwMjQwWhcN
-          MjUwOTE3MTgwMjQwWjAcMRowGAYDVQQDExFlZW0tc2VsZnNpZ25lZC1jYTCCASIw
-          DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJSKjD5tCvAXB+TYMSAgCxl7pXSe
-          f5qYF4j6TJC/gxoD6lD5I/cDgPqGR5o82HGa/usg5oUAL7fLQw92pEQFBcSmcvIk
-          9C/8gPcGUHFOAW/gzZ24WqvxGVPmUWdoweTeX/mZAwZeWJsNzse9QF3NKgEy0scR
-          KpPy5iuMVWtdy4poQLobXzqmH8YY27DCBrZ6rPgjiPkdGZ0BhNF4mrc/7JC9VENR
-          QWEMSx/xCCE4datQ+NeRMzfmXLYMekQzSG+28ZBkuKpyYChgppe4k6DbNjDdGoTG
-          IPktQaGLslwQXz1TZY3T0cJIIZQDnbLRKHnR9aqXUTLA2DcQwo+6pDmCLfcCAwEA
-          AaNCMEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYE
-          FET4JbjaAd0TZ7TKfue/IV3uN8ijMA0GCSqGSIb3DQEBCwUAA4IBAQAd/RudwdwR
-          99rxd3ZsWbg14/IbzOLUU/ELzegFJ6g3MdGhCX4HzY81jYB94vt0h3yBEpVjGvFq
-          oKaqzahAr1fY5dyrKPxlXqE/uRYgSN5LSuC0cjTOaOjCRPTTSIVO/dtQL+9+SkLH
-          i7O0ifZd19dTyPcwIu3IHUUiHYN4oWoCcmzYl1/TLXVOuKhN0f0mMafwo/OzxgBM
-          V7evWmiYwvPACo3fWwVXUJUqeZHcZ+54IcJRo5M0UNBfCjCz+8XeWHsLhQ0neNL2
-          i4W+EeOgM9vqr+LC0K66FnLdwec7DI22NgCjs/B4O8WKnd/8LWmlyN1zeYNLMJ9i
-          YBiVFHF1QXnO
-          -----END CERTIFICATE-----
-  tls.key: |
-          -----BEGIN RSA PRIVATE KEY-----
-          MIIEowIBAAKCAQEAlIqMPm0K8BcH5NgxICALGXuldJ5/mpgXiPpMkL+DGgPqUPkj
-          9wOA+oZHmjzYcZr+6yDmhQAvt8tDD3akRAUFxKZy8iT0L/yA9wZQcU4Bb+DNnbha
-          q/EZU+ZRZ2jB5N5f+ZkDBl5Ymw3Ox71AXc0qATLSxxEqk/LmK4xVa13LimhAuhtf
-          OqYfxhjbsMIGtnqs+COI+R0ZnQGE0Xiatz/skL1UQ1FBYQxLH/EIITh1q1D415Ez
-          N+Zctgx6RDNIb7bxkGS4qnJgKGCml7iToNs2MN0ahMYg+S1BoYuyXBBfPVNljdPR
-          wkghlAOdstEoedH1qpdRMsDYNxDCj7qkOYIt9wIDAQABAoIBAAJCh+3Vx5R2z4W4
-          bSnD4wmhJHMPsEKXEaLhptfXfqIMw1ej49uLJHXY/9xOptE2gvdY9SaWJchGtAiO
-          Q+NgLZ1b8X/kUi3it+0BC6j6NjJinmUS93NTOux868Vq6qn6YPy2E72h/fhlXSsT
-          xzxGGnG2FLxt4MmZBDvhhVW+MaR8nlbCV9cKZXD9SzbTIYOKtUJ8SmNkjGvNppYP
-          5yJpvplfkT5XUpMcTgfJ7GAdnVOpUpWITmXC0/k9grFkrMafo3KMZTNM+lsMmzck
-          BcZ4fkiUWmCDjW7rah8hTa2h5+fERAAAheghYCBF4qbycy65KjRIbO8qmFGirYZO
-          7t9hZJ0CgYEAwybr2UYgAM1E3tw5zCarfyZtxrOg/9pxk9Xaw9EmR6eymkN2wPpr
-          8FhlrDB1MThByb1vNtbE9YA6oRp4Ne0WuoRRyyUqLw/x3iVGcCXKW8Op5b80NRwO
-          zC2tY1NXaCGJljXMTDgadHlL3xFy5u6wGYLJGNzG4vxddBSA3CxI9WMCgYEAwtsj
-          tJ9G0WOO4y36AuTY5RJvbER5V6zd23PoW2lno3x8G4icqhEfTPIj8Aolp6GtK4t2
-          PJ+cKXsEuH0P9XBhu5MqcsxDyW8dV9D2DqrOyM1RjPtb+vbaAWhaJidT58ToQh3Z
-          znkRkcJDh1MynJKUoNv1Adga/bKtgcMNwc8ho10CgYBo4D3XYkxIogflDM0y3YVE
-          q85K/rYDSc3H+SG8ImZEE+dz59WmF+5yF89sHg6dCPKyDE/8VKc8mFDpy2PW9zdD
-          vWCHn81vxU3iaH3WPzjk394qTfssn4uERvfrbRqIJ53dT8QfIfd1qMoRczsgyB1z
-          WEniRqPL0HwYqfwmVtZOqQKBgGkGrMwiPY2G1/FjSqpcpvtxYFU+4xh6uGoco1UC
-          DzZzVoGQtMCF0hUrPmuXTIx5/FjIJsauUQGaqQS3g+6K0GLGA880giUEmxBGNRna
-          vvJEmHwgz4cJnp+7mzuNXxBBdd6NMGS1pN6nkrZSBamW6D170SdZT9MGh7a1Z6ja
-          +AqRAoGBAIJsMm/JRfX7D/5ZAPMIhEBfPMIqqT+HEpQr+QTPF+bPps9hZ6eUzz6I
-          LUE89x6KFkQWF5JOyDAZI2aa23k5EgbAQ0NQUCVQJM56g6d12GSG5wCgJhesjgJ1
-          /u8Ebf869qwKLmeu9d0mc+93yMTjSzwI/AOf9bAR82wydkQ6QtBr
-          -----END RSA PRIVATE KEY-----
+    secretName: "gw1-default-gw-certs"
+    serverCertificate: tls.crt
+    key: tls.key
 ---
 apiVersion: v1
 kind: Secret
