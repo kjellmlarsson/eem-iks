@@ -6,13 +6,13 @@ resources:
   #- cluster-issuer.yaml
   - namespace.yaml
 
-#secretGenerator:
-#- name: letsencrypt-chain
-#  files:
-#  - x1-root.crt=letsencrypt/x1-root.pem
-#  - r10.crt=letsencrypt/r10.pem
-#  - r11.crt=letsencrypt/r11.pem
-#  type: "Opaque"
+secretGenerator:
+- name: letsencrypt-chain
+  files:
+  - x1-root.crt=letsencrypt/x1-root.pem
+  - r10.crt=letsencrypt/r10.pem
+  - r11.crt=letsencrypt/r11.pem
+  type: "Opaque"
 
-#generatorOptions:
-#  disableNameSuffixHash: true
+generatorOptions:
+  disableNameSuffixHash: true

@@ -46,6 +46,13 @@ spec:
     secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
     key: tls.key
+    trustedCertificates:
+      - certificate: x1-root.crt
+        secretName: letsencrypt-chain
+      - certificate: r10.crt
+        secretName: letsencrypt-chain
+      - certificate: r11.crt
+        secretName: letsencrypt-chain
   deployNetworkPolicies: false
 ---
 apiVersion: v1
