@@ -45,6 +45,7 @@ spec:
     secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
     key: tls.key
+  deployNetworkPolicies: false
 ---
 apiVersion: v1
 kind: Secret

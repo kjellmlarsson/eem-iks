@@ -39,9 +39,6 @@ spec:
         spec:
           containers:
             - name: manager
-              env:
-                - name: FULL_LOG_TRACE
-                  value: 'true'
               resources:
                 requests:
                   cpu: '0.25'
