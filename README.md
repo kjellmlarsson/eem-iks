@@ -6,13 +6,16 @@ EEM CR examples: https://github.com/IBM/ibm-event-automation/tree/main/event-end
 
 # Install Argo CD
 
-```kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml```
-
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
 
 # EEM Install
 
 See https://ibm.github.io/event-automation/eem/installing/installing-on-kubernetes/ for details.
+
+Prereq is a Kubernetes platforms that support the Red Hat Universal Base Images (UBI) containers, versions 1.25 to 1.32
 
 ## Install Cert-Manager if not available
 
@@ -20,7 +23,6 @@ See https://ibm.github.io/event-automation/eem/installing/installing-on-kubernet
 
 ## Install EEM Operator
 
-Prereq: Kubernetes platforms that support the Red Hat Universal Base Images (UBI) containers, versions 1.25 to 1.32
 
 The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
 
