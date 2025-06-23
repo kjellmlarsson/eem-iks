@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - ss-gateway-certificate.yaml
-  #- gateway.yaml
+  - gateway.yaml
