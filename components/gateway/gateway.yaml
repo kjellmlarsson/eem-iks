@@ -28,7 +28,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: apiKey
-                    name: "gw1-default-gw-faulty"
+                    name: "gw1-default-gw"
               - name: GATEWAY_TRUST_PEM
                 valueFrom:
                   secretKeyRef:
@@ -63,5 +63,5 @@ metadata:
     app: "gw1-default-gw"
 type: Opaque
 stringData:
-  apiKey: "29d694a3-5a10-410a-8eb2-31f6ad31b393"
+  apiKey: 29d694a3-5a10-410a-8eb2-31f6ad31b393
   
