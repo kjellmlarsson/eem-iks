@@ -12,9 +12,9 @@ spec:
         - name: eventmanager
           namespace: ibm-event-automation
           sync-wave: "400"
-        #- name: gateway
-        #  namespace: ibm-event-automation
-        #  sync-wave: "200"
+        - name: gateway
+          namespace: ibm-event-automation
+          sync-wave: "200"
   template:
     metadata:
       name: '{{name}}'
