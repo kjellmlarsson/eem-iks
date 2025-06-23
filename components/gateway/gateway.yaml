@@ -8,22 +8,18 @@ spec:
     license: "L-CYBH-K48BZQ"
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
-  #managerEndpoint: eventendpointmanagement-ibm-eem-manager.ibm-event-automation.svc:7006/gateway
   managerEndpoint: https://eem.qs-eem-server.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway
   maxNumKafkaBrokers: 3
   gatewayGroupName: "gw1"
   gatewayID: "default-gw"
   replicas: 1
-  endpoints:
-    - name: gateway
-      host: gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
-      class: public-iks-k8s-nginx
   template:
     pod:
       spec:
         containers:
           - name: egw
             env:
+              # Ca from eventendpointmanagement-ibm-eem-manager-ca 
               - name: BACKEND_CA_CERTIFICATES
                 value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQTm4/NTbPwI9SE/5oL+/+czANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjE5MTM0NzI3\nWhcNMjYwNjE5MTM0NzI3WjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDm2gbcKshuMR1AaoZg\nc002BXT52eWwwQESf6UUlotT7b+a2Fp4VHcmDBkDs6dPRSBi/xibbFHATEQHo559\n2uUctMFZzz4kuYK0AHAJf/zjDqsUnil7d9Tm5fUscPNbs5scDJaKlnVGxebX0niQ\nS3uv9geN9F1L7y7h0up4iqOFMbY6lUMJvp6GuvtBhMyIGLfvz5chtmp1TM/WiIqm\nugYF/1LQcAcg0oSCN3OiHkWNl4zZDFF6pmS84r5srR3S70mdqIgZwGWRkD23V/AY\nEapDxjhGhOz7j2BEiBslQfecMBi13SQ8LCQCUBDujj+LBohiuSnhyx4lzA83QgmK\ncx3DAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBT3ezxuAAR8R9lJ1ya/yGKZs/or7zANBgkqhkiG9w0BAQsFAAOCAQEA\ngZzJplXgQdpFs/kt//zL9/nTm4nizE+PvzjPbE9YCcQY/hLYiq1Y6YpUjHi3tGBK\nMGV51cKhbDFVPBtGBmLF0h/DvmcekiLq/bgfQLTmAsyNNnKL0NunjTtlag8GLFXM\nWAH9PWyWiBwih/66gcmQeqbVLtO2nx+xWUx5WaY/wmq/dgBes1EyzkrG9ntgRTu/\nqrPEj3meA+5gThztq+RI31OE2g5hmanOTePc7y2wQAQnTLUI4YJtBoDAnm+15/17\nsJ1twaqR3QfAjGN/EB3eFsmSnxutYvBQCjneEJFpJXNmDKESdPnIJ7Gyin4rqfy/\n4w0uDmds5k7CczeiutE7YA==\n-----END CERTIFICATE-----\n"
               - name: API_KEY
@@ -36,15 +32,25 @@ spec:
                   secretKeyRef:
                     key: tls.crt
                     name: "gw1-default-gw-certs"
-    
+  
+  # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
+  endpoints:
+    - name: gateway
+      host: gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
+      class: public-iks-k8s-nginx
+  # Provide either a server certificate or a CA certificate to be used for creating certificates. 
+  # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
-      secretName: gw1-default-gw-certs
-      serverCertificate: tls.crt
-      caCertificate: tls.crt
+      caSecretName: root-secret
+      caCertificate: ca.crt 
       key: tls.key
-      trustedCertificates:
-        - secretName: letsencrypt-chain
-          certificate: x1-root.crt
+      #secretName: gw1-default-gw-certs
+      #serverCertificate: tls.crt
+      #caCertificate: tls.crt
+      #key: tls.key
+      #trustedCertificates:
+      #  - secretName: letsencrypt-chain
+      #    certificate: x1-root.crt
 ---
 apiVersion: v1
 kind: Secret
