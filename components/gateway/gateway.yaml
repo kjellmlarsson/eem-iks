@@ -9,7 +9,7 @@ spec:
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
   #managerEndpoint: https://eem.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway
-  managerEndpoint: https://eventendpointmanagement-ibm-eem-manager.ibm-eventautomation.svc.local:7003/gateway
+  managerEndpoint: https://eventendpointmanagement-ibm-eem-manager.ibm-eventautomation.svc.local:7006/gateway
   maxNumKafkaBrokers: 3
   gatewayGroupName: "gw1"
   gatewayID: "default-gw"
