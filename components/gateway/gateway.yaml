@@ -28,7 +28,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: apiKey
-                    name: "gw1-default-gw"
+                    name: "gw1-default-gw-faulty"
               - name: GATEWAY_TRUST_PEM
                 valueFrom:
                   secretKeyRef:
