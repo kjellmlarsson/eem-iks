@@ -6,7 +6,7 @@ resources:
   - crds.yaml
   - common.yaml
   - operator.yaml
-  #- eventmanager.yaml
+  - eventmanager.yaml
   #- gateway.yaml
 
 patches:
