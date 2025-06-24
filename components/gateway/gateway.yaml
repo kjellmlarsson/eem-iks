@@ -8,7 +8,6 @@ spec:
     license: "L-CYBH-K48BZQ"
     metric: "VIRTUAL_PROCESSOR_CORE"
     use: "EventAutomationNonProduction"
-  #managerEndpoint: https://eventendpointmanagement-ibm-eem-manager:7006/gateway
   managerEndpoint: https://eem.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud/gateway
   maxNumKafkaBrokers: 3
   gatewayGroupName: "gw1"
@@ -20,6 +19,8 @@ spec:
         containers:
           - name: egw
             env:
+              # For communication with the event manager. Either use the supplied value from the generated 
+              # gateway CR, or point to secret.
               - name: BACKEND_CA_CERTIFICATES
                 valueFrom:
                   secretKeyRef:
@@ -44,18 +45,12 @@ spec:
       host: gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
       class: public-iks-k8s-nginx
   # Provide either a server certificate or a CA certificate to be used for creating certificates. 
+  # This is TLS config for the communication between Kafka clients and the gateway
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
     secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
     key: tls.key
-    #trustedCertificates:
-    #   - certificate: ca.crt
-    #     secretName: eventendpointmanagement-ibm-eem-manager
-    #   - certificate: r10.crt
-    #     secretName: letsencrypt-chain
-    #   - certificate: r11.crt
-    #     secretName: letsencrypt-chain
 ---
 apiVersion: v1
 kind: Secret
