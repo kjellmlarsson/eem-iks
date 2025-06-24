@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./envs/iks/nonprod/{{name}}
+    path: ./envs/iks/nonprod/common
     targetRevision: HEAD
     repoURL: https://github.com/kjellmlarsson/eem-iks.git
   syncPolicy:
