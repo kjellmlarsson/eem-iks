@@ -98,10 +98,18 @@ For Event Manager, select one of the following:
 * User-provided (server) certificate
 * Operator-configured CA
 
-For Event Gateway, 
-
-
 ## 3. Create Event Gateway instance
 
-Login to the Event manager UI and 
+The Event Endpoint Management UI is used to generate configuration for the Gateway instance. 3 deployment methods exist:
 
+* Docker container
+* Kubernetes deployment
+* Operator-managed Custom Resource
+
+Full documentation: https://ibm.github.io/event-automation/eem/installing/install-gateway/
+
+Login to the Event Endpoint Management UI to create the configuration. An example configuration is here: [./components/gateway/gateway_cr.yaml](./components/gateway/gateway_cr.yaml)
+
+**TLS**
+
+For Event Gateway, provide a CA certificate for the Event Manager, and a certificate securing TLS to Kafka clients. Example
