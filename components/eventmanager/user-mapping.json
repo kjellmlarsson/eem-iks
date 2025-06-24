@@ -1,7 +1,7 @@
 {
   "mappings": [
     {
-      "id": "adminAndAuthor1",
+      "id": "admin",
       "roles": [
         "author",
         "admin"
