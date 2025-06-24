@@ -35,7 +35,7 @@ spec:
       ui:
         secretName: manager-ui-certificate-secret
         serverCertificate: tls.crt
-        key: key.tls
+        key: tls.key
       #trustedCertificates:
       #  - secretName: letsencrypt-chain
       #    certificate: x1-root.crt
