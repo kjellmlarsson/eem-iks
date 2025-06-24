@@ -6,9 +6,6 @@ spec:
   generators:
   - list:
       elements:
-        - name: common
-          namespace: ibm-event-automation
-          sync-wave: "400"
         - name: eventmanager
           namespace: ibm-event-automation
           sync-wave: "400"

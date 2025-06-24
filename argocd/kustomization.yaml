@@ -5,6 +5,7 @@ resources:
 
   - eem-crds.yaml
   - eem-operator.yaml
+  - common.yaml
   #- instances-applicationset.yaml
 
 patches:
