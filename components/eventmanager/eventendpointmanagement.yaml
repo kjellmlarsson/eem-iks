@@ -33,7 +33,7 @@ spec:
       storageClassName: ibmc-vpc-block-10iops-tier
     tls:
       ui:
-        secretName: manager-ui-certificate
+        secretName: manager-ui-certificate-secret
         serverCertificate: tls.crt
         key: key.tls
       #trustedCertificates:
