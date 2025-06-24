@@ -12,8 +12,6 @@ spec:
   project: default
   source:
     path: ./components/common
-    targetRevision: HEAD
-    repoURL: https://github.com/kjellmlarsson/eem-iks.git
   syncPolicy:
     automated:
       prune: true

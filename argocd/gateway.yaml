@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: common
+  name: gateway
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: '200'
@@ -12,8 +12,6 @@ spec:
   project: default
   source:
     path: ./components/gateway
-    targetRevision: HEAD
-    repoURL: https://github.com/kjellmlarsson/eem-iks.git
   syncPolicy:
     automated:
       prune: true
