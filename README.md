@@ -46,7 +46,7 @@ The Event Endpoint Management operator requires the following cluster-scoped per
 
 **Install of CRDs and Operator**
 
-There are two ArgoCD applications configured, one for the EEM CRDs (./argocd/eem-crds.yaml) and one for the operator (./argocd/eem-operator.yaml).
+There are two ArgoCD applications configured, one for the EEM CRDs [argocd/crds.yaml](./argocd/crds.yaml) and one for the operator [argocd/operator.yaml](./argocd/operator.yaml).
 
 For manual install:
 
@@ -72,20 +72,22 @@ Update the event manager cr sample with correct ingress subdomain, ingress class
 
 SSL passthrough must be enabled in the ingress controller for your Event Endpoint Management services to work.
 
-Ingress prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#ingress-controllers
-
+Ingress prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#ingress-controllers\
 Ingress configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#configuring-ingress
 
 **Storage**
 
-Event Endpoint Management requires persistent volumes with the following capabilities: volumeMode: Filesystem and accessMode: ReadWriteOnce. See https://ibm.github.io/event-automation/support/matrix/#event-endpoint-management
+If not using ephemeral storage, Event Endpoint Management requires persistent volumes with the following capabilities: volumeMode: Filesystem and accessMode: ReadWriteOnce. 
 
-Storage prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#data-storage-requirements
+See https://ibm.github.io/event-automation/support/matrix/#event-endpoint-management\
+Storage prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#data-storage-requirements\
 Storage configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#enabling-persistent-storage
 
 **Authentication**
 
 Authentication to the Event Manager UI can be either local, with users, passwords and roles stored in Kubernetes secrets as json, or using OIDC.
+
+This example uses local authentication.
 
 Sample secrets for local are created with admin, author and viewer users. Remove these and create them manually if you don't want these cleartext users and passwords in your repo. You can change this here: [./components/eventmanager/kustomization.yaml](./components/eventmanager/kustomization.yaml)
 
@@ -97,7 +99,7 @@ For Event Manager, select one of the following:
 
 * User-provided CA certificate
 * User-provided (server) certificate
-* Operator-configured CA
+* Operator-configured CA - used in this example.
 
 ## 3. Create Event Gateway instance
 
@@ -105,7 +107,7 @@ The Event Endpoint Management UI is used to generate configuration for the Gatew
 
 * Docker container
 * Kubernetes deployment
-* Operator-managed Custom Resource
+* Operator-managed Custom Resource - used in this example.
 
 Full documentation: https://ibm.github.io/event-automation/eem/installing/install-gateway/
 
@@ -113,4 +115,5 @@ Login to the Event Endpoint Management UI to create the configuration. An exampl
 
 **TLS**
 
-For Event Gateway, provide a CA certificate for the Event Manager, and a certificate securing TLS to Kafka clients. Example
+For Event Gateway, provide a CA certificate for the Event Manager, and a certificate securing TLS to Kafka clients. Examples (update with your ingress subdomain) here: [./components/gateway/tls](./components/gateway/tls)
+
