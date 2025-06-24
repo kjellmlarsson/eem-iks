@@ -50,6 +50,7 @@ spec:
   tls:
     secretName: "gw1-default-gw-certs-lec"
     serverCertificate: tls.crt
+    caCertificate: tls.crt
     key: tls.key
 ---
 apiVersion: v1
