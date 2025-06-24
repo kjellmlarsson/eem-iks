@@ -5,7 +5,7 @@ resources:
 
   - crds.yaml
   - common.yaml
-  #- operator.yaml
+  - operator.yaml
   #- eventmanager.yaml
   #- gateway.yaml
 
