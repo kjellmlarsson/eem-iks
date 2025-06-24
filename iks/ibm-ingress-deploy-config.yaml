@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ibm-ingress-deploy-config
+  namespace: kube-system
+data:
+  public-crd19tadvf0j4in1uf61sg-alb1: '{"enableSslPassthrough":"true"}'
