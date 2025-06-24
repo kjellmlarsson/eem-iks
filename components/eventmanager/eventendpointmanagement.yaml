@@ -11,7 +11,6 @@ spec:
     metric: VIRTUAL_PROCESSOR_CORE
     use: EventAutomationNonProduction
   manager:
-
     # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
     endpoints:
       - name: ui
@@ -31,14 +30,6 @@ spec:
     storage:
       type: persistent-claim
       storageClassName: ibmc-vpc-block-10iops-tier
-    tls:
-      ui:
-        secretName: manager-ui-certificate-secret
-        serverCertificate: tls.crt
-        key: tls.key
-      #trustedCertificates:
-      #  - secretName: letsencrypt-chain
-      #    certificate: x1-root.crt
     template:
       pod:
         spec:
