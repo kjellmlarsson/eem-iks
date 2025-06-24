@@ -20,8 +20,8 @@ spec:
         containers:
           - name: egw
             env:
-              #- name: BACKEND_CA_CERTIFICATES
-              #  value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQSASK478CIf8TDe2xO1KMrDANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjIzMDkyMTMx\nWhcNMjYwNjIzMDkyMTMxWjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTF+6h536F8OjGnD4Z\npXZOWK/hLGSWhAYV/vPEt/ZZWGpi3dvirWu+LT3eQF8AGhhJL6XNusX89QcNWRbY\nOLY876w+/ot8BxvTkpuFCL679GZQ59wMU1OJIucgw5IHANcOkPLyHMvsxuqqaxzv\noUF8vbfdYqh+mvny0SbjrFE9EQCdgdpCKm/0eKZWLPRyDNkfKoOU/qABjfszJU6M\nVROiLArbSP4FG0xTsIIDlv7YbsRUI+KDZlExDE2M40Uw0Qfqt78GuCKNeYb8tQdo\nnaoC1SKIOMGuuVY024UCHSzmF5QuNtJbfPBcXnIiU+tTlGdVVqzHDglPKU/8hJRW\naigrAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBTxrvfZM5v28b6uUFxH5XFRiGatTTANBgkqhkiG9w0BAQsFAAOCAQEA\nI1IYSJ6B8HeN98/15LaQoaqYW/sbafcZR2Vbi9esZPXf1voKNyqXpbaIXwdUZYYc\nTyeKOeTSR2s6VptdqQooJsQlzUr3P9HlP8yOYaRIxGDcJsZCdmDeS/njqSTk0Bts\nktxkWkCiQjH+xRbJud/eDF7UKl6BKyQ6jaQmIB+e1r0yL5z/enF4E0UWpFwvVjVl\nqGTmaAl+jC8FC8lNhAUClIpC7Wcx4lXeMRdX6aAs3ynL9RF28Dd6Z/s5gRmYgEMp\ns4SaTrpz5hufcS5kZzDjX4mKb+J/oT2xGGVsUV6TqKPbo5NUdpTL69OIJ24IoJaP\nwz/HZmYW0SPYGpnixDf4sw==\n-----END CERTIFICATE-----\n"
+              - name: BACKEND_CA_CERTIFICATES
+                value: "-----BEGIN CERTIFICATE-----\nMIIDbDCCAlSgAwIBAgIQSASK478CIf8TDe2xO1KMrDANBgkqhkiG9w0BAQsFADBQ\nMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQgTWFuYWdlbWVudDEmMCQGA1UE\nAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1lbnQwHhcNMjUwNjIzMDkyMTMx\nWhcNMjYwNjIzMDkyMTMxWjBQMSYwJAYDVQQKEx1JQk0gRXZlbnQgRW5kcG9pbnQg\nTWFuYWdlbWVudDEmMCQGA1UEAxMdSUJNIEV2ZW50IEVuZHBvaW50IE1hbmFnZW1l\nbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTF+6h536F8OjGnD4Z\npXZOWK/hLGSWhAYV/vPEt/ZZWGpi3dvirWu+LT3eQF8AGhhJL6XNusX89QcNWRbY\nOLY876w+/ot8BxvTkpuFCL679GZQ59wMU1OJIucgw5IHANcOkPLyHMvsxuqqaxzv\noUF8vbfdYqh+mvny0SbjrFE9EQCdgdpCKm/0eKZWLPRyDNkfKoOU/qABjfszJU6M\nVROiLArbSP4FG0xTsIIDlv7YbsRUI+KDZlExDE2M40Uw0Qfqt78GuCKNeYb8tQdo\nnaoC1SKIOMGuuVY024UCHSzmF5QuNtJbfPBcXnIiU+tTlGdVVqzHDglPKU/8hJRW\naigrAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0G\nA1UdDgQWBBTxrvfZM5v28b6uUFxH5XFRiGatTTANBgkqhkiG9w0BAQsFAAOCAQEA\nI1IYSJ6B8HeN98/15LaQoaqYW/sbafcZR2Vbi9esZPXf1voKNyqXpbaIXwdUZYYc\nTyeKOeTSR2s6VptdqQooJsQlzUr3P9HlP8yOYaRIxGDcJsZCdmDeS/njqSTk0Bts\nktxkWkCiQjH+xRbJud/eDF7UKl6BKyQ6jaQmIB+e1r0yL5z/enF4E0UWpFwvVjVl\nqGTmaAl+jC8FC8lNhAUClIpC7Wcx4lXeMRdX6aAs3ynL9RF28Dd6Z/s5gRmYgEMp\ns4SaTrpz5hufcS5kZzDjX4mKb+J/oT2xGGVsUV6TqKPbo5NUdpTL69OIJ24IoJaP\nwz/HZmYW0SPYGpnixDf4sw==\n-----END CERTIFICATE-----\n"
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
@@ -44,9 +44,9 @@ spec:
     secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
     key: tls.key
-    trustedCertificates:
-       - certificate: ca.crt
-         secretName: eventendpointmanagement-ibm-eem-manager
+    #trustedCertificates:
+    #   - certificate: ca.crt
+    #     secretName: eventendpointmanagement-ibm-eem-manager
     #   - certificate: r10.crt
     #     secretName: letsencrypt-chain
     #   - certificate: r11.crt
