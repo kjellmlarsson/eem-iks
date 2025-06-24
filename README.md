@@ -73,6 +73,7 @@ Update the event manager cr sample with correct ingress subdomain, ingress class
 SSL passthrough must be enabled in the ingress controller for your Event Endpoint Management services to work.
 
 Ingress prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#ingress-controllers
+
 Ingress configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#configuring-ingress
 
 **Storage**
@@ -84,7 +85,7 @@ Storage configuration: https://ibm.github.io/event-automation/eem/installing/con
 
 **Authentication**
 
-Authentication to the Event Manager UI can be either local, with users, passwords and roles stored in Kubernetes secrets as yaml, or using OIDC.
+Authentication to the Event Manager UI can be either local, with users, passwords and roles stored in Kubernetes secrets as json, or using OIDC.
 
 Sample secrets for local are created with admin, author and viewer users. Remove these and create them manually if you don't want these cleartext users and passwords in your repo. You can change this here: [./components/eventmanager/kustomization.yaml](./components/eventmanager/kustomization.yaml)
 
