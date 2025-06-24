@@ -17,12 +17,13 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-# Install Cert-Manager if not available
+# Install Cert-Manager
 
-A certificate manager is required to automatically manage the process of creating, renewing and using Event Endpoint Management internal and system-to-system certificates. It is also used by default for managing Event Endpoint Management certificates that are visible to clients and users, simplifying their configuration.
+A certificate manager is required to automatically manage the process of creating, renewing and using Event Endpoint Management internal and system-to-system certificates. 
+
+It is also used by default for managing Event Endpoint Management certificates that are visible to clients and users, simplifying their configuration.
 
 `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.0/cert-manager.yaml`
-
 
 # Fork this repo and adapt to your environment
 
@@ -38,10 +39,16 @@ Prereq is a Kubernetes platform that support the Red Hat Universal Base Images (
 
 The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
 
+**Required Cluster-scope Permissions**
+
 - **Permission to retrieve storage classes**: The Event Endpoint Management operator uses admission webhooks to provide immediate validation and feedback about the creation and modification of the Event Manager and operator-managed Event Gateway instances. The permission to retrieve storage classes is used by the webhooks to find a default storage class.
 - **Permission to list specific CustomResourceDefinitions**: This allows Event Endpoint Management to identify whether other optional dependencies have been installed into the cluster.
 
-There are two ArgoCD applications configured, one for the EEM CRDs (./argocd/eem-crds.yaml) and one for the operator (./argocd/eem-operator.yaml). 
+**Install of CRDs and Operator**
+
+There are two ArgoCD applications configured, one for the EEM CRDs (./argocd/eem-crds.yaml) and one for the operator (./argocd/eem-operator.yaml).
+
+For manual install:
 
 ```helm repo add ibm-helm https://raw.githubusercontent.com/IBM/charts/master/repo/ibm-helm
 kubectl create namespace ibm-event-automation
@@ -63,13 +70,17 @@ Update the event manager cr sample with correct ingress subdomain, ingress class
 
 **Ingress**
 
+SSL passthrough must be enabled in the ingress controller for your Event Endpoint Management services to work.
+
+Ingress prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#ingress-controllers
+Ingress configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#configuring-ingress
+
 **Storage**
 
 Event Endpoint Management requires persistent volumes with the following capabilities: volumeMode: Filesystem and accessMode: ReadWriteOnce. See https://ibm.github.io/event-automation/support/matrix/#event-endpoint-management
 
-Storage requirements: https://ibm.github.io/event-automation/eem/installing/prerequisites/#data-storage-requirements
-
-Storage Configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#enabling-persistent-storage
+Storage prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#data-storage-requirements
+Storage configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#enabling-persistent-storage
 
 **Authentication**
 
@@ -79,7 +90,16 @@ Sample secrets for local are created with admin, author and viewer users. Remove
 
 For manually adding local users, see. See https://ibm.github.io/event-automation/eem/security/managing-access/ and https://ibm.github.io/event-automation/eem/security/user-roles/
 
-Login to the UI with one of the sample users.
+**TLS**
+
+For Event Manager, select one of the following:
+
+* User-provided CA certificate
+* User-provided (server) certificate
+* Operator-configured CA
+
+For Event Gateway, 
+
 
 ## 3. Create Event Gateway instance
 
