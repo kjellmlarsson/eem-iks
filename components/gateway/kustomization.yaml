@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - tls/gateway-certificate.yaml
-  - gateway.yaml
+  - gateway_cr.yaml

@@ -35,7 +35,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: tls.crt
-                    name: "gw1-default-gw-certs-lec"
+                    name: "gw1-default-gw-certs"
   
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
@@ -47,13 +47,9 @@ spec:
   # This is TLS config for the communication between Kafka clients and the gateway
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
-    caSecretName: eventendpointmanagement-ibm-eem-manager
-    caCertificate: ca.crt
+    secretName: "gw1-default-gw-certs"
+    serverCertificate: tls.crt
     key: tls.key
-    #secretName: "gw1-default-gw-certs-lec"
-    #serverCertificate: tls.crt
-    #caCertificate: tls.crt
-    #key: tls.key
 ---
 apiVersion: v1
 kind: Secret

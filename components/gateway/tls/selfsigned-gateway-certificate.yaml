@@ -21,4 +21,4 @@ spec:
     - gw1-default-gw-3.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
   issuerRef:
     name: eem-ca-issuer
-    kind: ClusterIssuer
+    kind: Issuer
