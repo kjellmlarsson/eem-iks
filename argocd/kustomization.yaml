@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 
   - crds.yaml
-  - common.yaml
-  - operator.yaml
+  #- common.yaml
+  #- operator.yaml
   #- eventmanager.yaml
   #- gateway.yaml
 
