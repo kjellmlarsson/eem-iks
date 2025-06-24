@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - eventendpointmanagement.yaml
-  #- manager-ui-certificate.yaml
 
 secretGenerator:
   - name: eventendpointmanagement-ibm-eem-user-credentials
