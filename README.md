@@ -1,4 +1,4 @@
-# eem-iks
+# Event Endpoint Management on Kubernetes example deployment
 
 This repo contains Kubernetes manifests and ArgoCD config to install Event Endpoint Management on a Kubernetes cluster. Use this to either setup automated install of EEM with ArgoCD or use the manifests and apply them manually.
 
@@ -111,7 +111,7 @@ The Event Endpoint Management UI is used to generate configuration for the Gatew
 
 Full documentation: https://ibm.github.io/event-automation/eem/installing/install-gateway/
 
-Login to the Event Endpoint Management UI to create the configuration. An example configuration is here: [./components/gateway/gateway_cr.yaml](./components/gateway/gateway_cr.yaml)
+Login to the Event Endpoint Management UI to create the configuration. An example configuration (update with your manager endpoint, ingress subdomain, apikey to event manager and certificate references as necessary) is here: [./components/gateway/gateway_cr.yaml](./components/gateway/gateway_cr.yaml)
 
 **TLS**
 

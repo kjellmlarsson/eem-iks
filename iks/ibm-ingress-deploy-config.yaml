@@ -1,3 +1,4 @@
+# Documentation here: https://cloud.ibm.com/docs/containers?topic=containers-comm-ingress-annotations&locale=en#comm-customize-deploy
 apiVersion: v1
 kind: ConfigMap
 metadata:
