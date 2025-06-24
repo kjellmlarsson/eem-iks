@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 
   - eem-crds.yaml
+  - common.yaml
   - eem-operator.yaml
-  #- common.yaml
   #- instances-applicationset.yaml
 
 patches:
