@@ -3,10 +3,11 @@ kind: Kustomization
 
 resources:
 
-  - eem-crds.yaml
+  - crds.yaml
   - common.yaml
-  - eem-operator.yaml
-  #- instances-applicationset.yaml
+  - operator.yaml
+  #- eventmanager.yaml
+  #- gateway.yaml
 
 patches:
 - target:

@@ -4,14 +4,14 @@ metadata:
   name: common
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: '50'
+    argocd.argoproj.io/sync-wave: '200'
 spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: ./components/common
+    path: ./components/gateway
     targetRevision: HEAD
     repoURL: https://github.com/kjellmlarsson/eem-iks.git
   syncPolicy:
