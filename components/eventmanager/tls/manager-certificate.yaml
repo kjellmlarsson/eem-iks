@@ -21,7 +21,6 @@ spec:
   subject:
     organizations:
       - eventendpointmanager
-  commonName: eventendpointmanager
   dnsNames:
     - eventendpointmanagement-ibm-eem-manager
     - eventendpointmanagement-ibm-eem-manager.ibm-event-automation
