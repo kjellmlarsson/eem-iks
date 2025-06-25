@@ -38,18 +38,22 @@ Prereq is a Kubernetes platform that support the Red Hat Universal Base Images (
 
 ## 1. Install EEM Operator
 
-**Required Cluster-scope Permissions**
+### Required Cluster-scope Permissions
 
 The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
 
 - **Permission to retrieve storage classes**: The Event Endpoint Management operator uses admission webhooks to provide immediate validation and feedback about the creation and modification of the Event Manager and operator-managed Event Gateway instances. The permission to retrieve storage classes is used by the webhooks to find a default storage class.
-- **Permission to list specific CustomResourceDefinitions**: This allows Event Endpoint Management to identify whether other optional dependencies have been installed into the cluster.
+- **Permission to list specific CustomResourceDefinitions**: This allows Event Endpoint Management to identify whether other optional dependencies have been installed into the cluster. 
 
-**Install of CRDs and Operator**
+### Install of CRDs and Operator
 
-There are two ArgoCD applications configured, one for the EEM CRDs [argocd/crds.yaml](./argocd/crds.yaml) and one for the operator [argocd/operator.yaml](./argocd/operator.yaml).
+#### Installing in an offline environment
+If you're installing in an offline environment, mirror the images to your internal registry and install CRDs and Operators according to instructions here: https://ibm.github.io/event-automation/eem/installing/offline/
 
-For manual install:
+#### Installing in an online environment using ArgoCD
+There are two ArgoCD applications configured, one for the EEM CRDs ([crds.yaml](./argocd/crds.yaml)) and one for the operator ([operator.yaml](./argocd/operator.yaml)). Applying the [bootstrap.yaml](./argocd/bootstrap.yaml) file to your clusters ArgoCD namespace will install these using Helm.
+
+#### Installing in an online environment manually
 
 ```
 helm repo add ibm-helm https://raw.githubusercontent.com/IBM/charts/master/repo/ibm-helm
@@ -58,16 +62,18 @@ helm install eem-crds ibm-helm/ibm-eem-operator-crd -n ibm-event-automation
 helm install eventendpointmanagement ibm-helm/ibm-eem-operator -n ibm-event-automation
 ```
 
+Parameters for the operator install: https://ibm.github.io/event-automation/eem/installing/installing-on-kubernetes/#installing-the-operator
+
 ## 2. Create Event Manager instance
 
-**Ingress**
+### Ingress
 
 SSL passthrough must be enabled in the ingress controller for your Event Endpoint Management services to work.
 
 Ingress prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#ingress-controllers\
 Ingress configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#configuring-ingress
 
-**Storage**
+### Storage
 
 If not using ephemeral storage, Event Endpoint Management requires persistent volumes with the following capabilities: volumeMode: Filesystem and accessMode: ReadWriteOnce. 
 
@@ -75,7 +81,7 @@ See https://ibm.github.io/event-automation/support/matrix/#event-endpoint-manage
 Storage prereqs: https://ibm.github.io/event-automation/eem/installing/prerequisites/#data-storage-requirements\
 Storage configuration: https://ibm.github.io/event-automation/eem/installing/configuring/#enabling-persistent-storage
 
-**Authentication**
+### Authentication
 
 Authentication to the Event Manager UI can be either local, with users, passwords and roles stored in Kubernetes secrets as json, or using OIDC.
 
@@ -85,7 +91,7 @@ Sample secrets for local are created with admin, author and viewer users. Remove
 
 For manually adding local users, see. See https://ibm.github.io/event-automation/eem/security/managing-access/ and https://ibm.github.io/event-automation/eem/security/user-roles/
 
-**TLS**
+### TLS
 
 For Event Manager, select one of the following ways of configuring TLS:
 
@@ -115,7 +121,7 @@ The Event Endpoint Management UI is used to generate configuration for the Gatew
 
 Login to the Event Endpoint Management UI to create the configuration. An example configuration (update with your manager endpoint, ingress subdomain, apikey to event manager and certificate references as necessary) is here: [./components/gateway/gateway_cr.yaml](./components/gateway/gateway_cr.yaml)
 
-**TLS**
+### TLS
 
 For Event Gateway, provide a CA certificate for the Event Manager, and a certificate securing TLS to Kafka clients. Examples (update with your ingress subdomain) here: [./components/gateway/tls](./components/gateway/tls)
 
