@@ -26,7 +26,7 @@ It is also used by default for managing Event Endpoint Management certificates t
 
 You can also create certificates **manually** and provide them to Event Endpoint Management as Kubernetes secrets.
 
-Full documentation: https://ibm.github.io/event-automation/eem/installing/prerequisites/#certificate-management
+Documentation: https://ibm.github.io/event-automation/eem/installing/prerequisites/#certificate-management
 
 # EEM Install
 
