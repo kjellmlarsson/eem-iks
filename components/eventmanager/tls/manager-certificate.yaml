@@ -1,0 +1,33 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: eem-gateway-cert
+  labels:
+    app: gw1-default-gw
+    gatewayGroup: gw1
+    gatewayId: default-gw
+spec:
+  secretTemplate:
+    labels:
+      app: gw1-default-gw
+      gatewayGroup: gw1
+      gatewayId: default-gw
+  secretName: gw1-default-gw-certs
+  privateKey:
+    algorithm: RSA
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  isCA: false
+  usages:
+    - client auth
+    - digital signature
+    - server auth
+  subject:
+    organizations:
+      - gateway
+  commonName: gateway
+  dnsNames:
+    - '*.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud'
+  issuerRef:
+    name: eem-ca-issuer
+    kind: Issuer
