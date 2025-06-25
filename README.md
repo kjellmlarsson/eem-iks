@@ -1,6 +1,6 @@
 # Event Endpoint Management on Kubernetes example deployment
 
-This repo contains Kubernetes manifests and ArgoCD config to install Event Endpoint Management on a Kubernetes cluster. Use this to either setup automated install of EEM with ArgoCD or use the manifests and apply them manually.
+This repo contains sample Kubernetes manifests and ArgoCD config to install Event Endpoint Management on an (IBM Cloud) Kubernetes cluster. Use this to either setup automated install of EEM with ArgoCD or use the manifests and apply them manually.
 
 The full EEM Documentation with detailed instructions is available here: https://ibm.github.io/event-automation/eem/
 
@@ -10,24 +10,23 @@ EEM CR examples: https://github.com/IBM/ibm-event-automation/tree/main/event-end
 
 # Install ArgoCD
 
-Install ArgoCD
+Installing ArgoCD is optional. Skip this step if you prefer to apply manifests manually.
 
 ```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+Fork this repo and update the repoURL in [argocd/bootstrap.yaml](./argocd/bootstrap.yaml) and in [argocd/kustomization.yaml](./argocd/kustomization.yaml)
+
 # Install Cert-Manager
 
-A certificate manager is required to automatically manage the process of creating, renewing and using Event Endpoint Management internal and system-to-system certificates. 
-
+A certificate manager is required to **automatically** manage the process of creating, renewing and using Event Endpoint Management internal and system-to-system certificates. 
 It is also used by default for managing Event Endpoint Management certificates that are visible to clients and users, simplifying their configuration.
 
-`kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.0/cert-manager.yaml`
+You can also create certificates **manually** and provide them to Event Endpoint Management as Kubernetes secrets.
 
-# Fork this repo and adapt to your environment
-
-Fork this repo and update the repoURL in [argocd/bootstrap.yaml](./argocd/bootstrap.yaml) and in [argocd/kustomization.yaml](./argocd/kustomization.yaml)
+Full documentation: https://ibm.github.io/event-automation/eem/installing/prerequisites/#certificate-management
 
 # EEM Install
 
@@ -52,23 +51,14 @@ There are two ArgoCD applications configured, one for the EEM CRDs [argocd/crds.
 
 For manual install:
 
-```helm repo add ibm-helm https://raw.githubusercontent.com/IBM/charts/master/repo/ibm-helm
+```
+helm repo add ibm-helm https://raw.githubusercontent.com/IBM/charts/master/repo/ibm-helm
 kubectl create namespace ibm-event-automation
 helm install eem-crds ibm-helm/ibm-eem-operator-crd -n ibm-event-automation
-helm install eventendpointmanagement ibm-helm/ibm-eem-operator -n "ibm-event-automation
+helm install eventendpointmanagement ibm-helm/ibm-eem-operator -n ibm-event-automation
 ```
 
 ## 2. Create Event Manager instance
-
-### Create image pull secret
-
-Create an image pull secret to access the IBM container registry
-
-`kubectl create secret docker-registry ibm-entitlement-key --docker-username=cp --docker-password="<your-entitlement-key>" --docker-server="cp.icr.io" -n "ibm-event-automation"`
-
-### Update event manager CR sample with values for your cluster
-
-Update the event manager cr sample with correct ingress subdomain, ingress class and storage class names here: [eventendpointmanagement.yaml](./components/eventmanager/eventendpointmanagement.yaml)
 
 **Ingress**
 
@@ -102,6 +92,16 @@ For Event Manager, select one of the following ways of configuring TLS:
 * [Operator-configured CA](https://ibm.github.io/event-automation/eem/installing/configuring/#operator-configured-ca-certifcate)  - used in this example
 * [User-provided CA certificate](https://ibm.github.io/event-automation/eem/installing/configuring/#user-provided-ca-certificate)
 * [User-provided (server) certificate](https://ibm.github.io/event-automation/eem/installing/configuring/#user-provided-certificates)
+
+### Create image pull secret
+
+Create an image pull secret to access the IBM container registry
+
+`kubectl create secret docker-registry ibm-entitlement-key --docker-username=cp --docker-password="<your-entitlement-key>" --docker-server="cp.icr.io" -n "ibm-event-automation"`
+
+### Update event manager CR sample with values for your cluster
+
+Update the event manager cr sample with correct ingress subdomain, ingress class and storage class names here: [eventendpointmanagement.yaml](./components/eventmanager/eventendpointmanagement.yaml)
 
 ## 3. Create Event Gateway instance
 
