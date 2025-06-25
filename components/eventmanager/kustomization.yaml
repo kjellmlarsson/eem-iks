@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - eventendpointmanagement.yaml
   - tls/letsencrypt-issuer.yaml
-  #- tls/manager-certificate.yaml
+  - tls/manager-certificate.yaml
 
 secretGenerator:
   - name: eventendpointmanagement-ibm-eem-user-credentials
