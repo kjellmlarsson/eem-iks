@@ -21,6 +21,11 @@ spec:
   subject:
     organizations:
       - eventendpointmanager
+
+  # From https://ibm.github.io/event-automation/eem/installing/configuring/#user-provided-certificates
+  #
+  # "You must include a SAN entry for the local cluster network when you use LOCAL authentication"
+  #
   dnsNames:
     - qs-eem-gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
     - eem-ui.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
