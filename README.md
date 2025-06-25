@@ -31,15 +31,17 @@ Fork this repo and update the repoURL in [argocd/bootstrap.yaml](./argocd/bootst
 
 # EEM Install
 
+Event Endpoint Management is an operator-based release and uses custom resources to deploy and manage the lifecycle of your Event Endpoint Management installation. The operator and its CRDs are installed using Helm.
+
 See https://ibm.github.io/event-automation/eem/installing/installing-on-kubernetes/ for details.
 
 Prereq is a Kubernetes platform that support the Red Hat Universal Base Images (UBI) containers, versions 1.25 to 1.32
 
 ## 1. Install EEM Operator
 
-The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
-
 **Required Cluster-scope Permissions**
+
+The Event Endpoint Management operator requires the following cluster-scoped permissions, even if the operator is set to manage instances in a single namespace:
 
 - **Permission to retrieve storage classes**: The Event Endpoint Management operator uses admission webhooks to provide immediate validation and feedback about the creation and modification of the Event Manager and operator-managed Event Gateway instances. The permission to retrieve storage classes is used by the webhooks to find a default storage class.
 - **Permission to list specific CustomResourceDefinitions**: This allows Event Endpoint Management to identify whether other optional dependencies have been installed into the cluster.
@@ -95,21 +97,21 @@ For manually adding local users, see. See https://ibm.github.io/event-automation
 
 **TLS**
 
-For Event Manager, select one of the following:
+For Event Manager, select one of the following ways of configuring TLS:
 
-* User-provided CA certificate
-* User-provided (server) certificate
-* Operator-configured CA - used in this example.
+* [Operator-configured CA](https://ibm.github.io/event-automation/eem/installing/configuring/#operator-configured-ca-certifcate)  - used in this example
+* [User-provided CA certificate](https://ibm.github.io/event-automation/eem/installing/configuring/#user-provided-ca-certificate)
+* [User-provided (server) certificate](https://ibm.github.io/event-automation/eem/installing/configuring/#user-provided-certificates)
 
 ## 3. Create Event Gateway instance
+
+Full documentation: https://ibm.github.io/event-automation/eem/installing/install-gateway/
 
 The Event Endpoint Management UI is used to generate configuration for the Gateway instance. 3 deployment methods exist:
 
 * Docker container
 * Kubernetes deployment
 * Operator-managed Custom Resource - used in this example.
-
-Full documentation: https://ibm.github.io/event-automation/eem/installing/install-gateway/
 
 Login to the Event Endpoint Management UI to create the configuration. An example configuration (update with your manager endpoint, ingress subdomain, apikey to event manager and certificate references as necessary) is here: [./components/gateway/gateway_cr.yaml](./components/gateway/gateway_cr.yaml)
 
