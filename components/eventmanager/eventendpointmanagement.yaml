@@ -33,19 +33,13 @@ spec:
     storage:
       type: persistent-claim
       storageClassName: ibmc-vpc-block-10iops-tier
+    # See: https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
     # tls:
-    #   secretName: eem-manager-cert-secret
-    #   caCertificate: tls.crt
-    #   ui: 
-    #     secretName: eem-manager-cert-secret
-    #     serverCertificate: tls.crt
-    #     key: tls.key
     #   trustedCertificates:
     #     - certificate: ca.crt
     #       secretName: <name of secret containing the ca.crt of your API Connect instance, required if using a different CA to EEM>
     # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-apic
     # apic:
-    #   tls: false
     #   jwks:
     #     endpoint: <end point>
     template:
