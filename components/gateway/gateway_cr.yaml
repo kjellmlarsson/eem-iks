@@ -25,8 +25,8 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: ca.crt
-                    #name: "eventendpointmanagement-ibm-eem-manager"
-                    name: letsencrypt-chain
+                    name: "eventendpointmanagement-ibm-eem-manager"
+                    #name: letsencrypt-chain
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
@@ -36,8 +36,8 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: tls.crt
-                    #name: "gw1-default-gw-certs"
-                    name: eem-gateway-cert-lec-secret
+                    name: "gw1-default-gw-certs"
+                    #name: eem-gateway-cert-lec-secret
   
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
@@ -53,9 +53,9 @@ spec:
     #secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
     key: tls.key
-    trustedCertificates:
-      secretName: letsencrypt-chain
-      certificate: ca.crt
+    #trustedCertificates:
+    #  secretName: letsencrypt-chain
+    #  certificate: ca.crt
 ---
 apiVersion: v1
 kind: Secret
@@ -66,4 +66,3 @@ metadata:
 type: Opaque
 stringData:
   apiKey: 27ea0934-4856-46ab-8e1c-341cb790d91c
-  

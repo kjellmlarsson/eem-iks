@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  #- tls/selfsigned/selfsigned-gateway-certificate.yaml
-  #- tls/selfsigned/selfsigned-issuer.yaml
-  - tls/letsencrypt/gateway-certificate.yaml
+  - tls/selfsigned/selfsigned-gateway-certificate.yaml
+  - tls/selfsigned/selfsigned-issuer.yaml
+  #- tls/letsencrypt/gateway-certificate.yaml
   - gateway_cr.yaml
