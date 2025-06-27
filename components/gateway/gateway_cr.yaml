@@ -21,12 +21,12 @@ spec:
             env:
               # For communication with the event manager. Either use the supplied value from the generated 
               # gateway CR, or point to secret.
-              - name: BACKEND_CA_CERTIFICATES
-                valueFrom:
-                  secretKeyRef:
-                    key: tls.crt
-                    name: "eventendpointmanagement-ibm-eem-manager"
-                    #name: eem-manager-cert-secret
+              #- name: BACKEND_CA_CERTIFICATES
+              #  valueFrom:
+              #    secretKeyRef:
+              #      key: tls.crt
+              #      name: "eventendpointmanagement-ibm-eem-manager"
+              #      #name: eem-manager-cert-secret
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
