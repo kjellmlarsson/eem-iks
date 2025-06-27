@@ -7,9 +7,9 @@ resources:
   #- tls/letsencrypt/manager-certificate.yaml
 
 secretGenerator:
-  - name: eventendpointmanagement-ibm-eem-user-credentials
-    files:
-      - user-credentials.json
+  # - name: eventendpointmanagement-ibm-eem-user-credentials
+  #   files:
+  #     - user-credentials.json
 
   - name: eventendpointmanagement-ibm-eem-user-roles
     files:
@@ -19,19 +19,19 @@ generatorOptions:
   disableNameSuffixHash: true
 
 transformers:
-  - |-
-    apiVersion: builtin
-    kind: PatchTransformer
-    metadata:
-      name: add-annotation-user-credentials-secret
-    patch: |-
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: eventendpointmanagement-ibm-eem-user-credentials
-        annotations:
-          argocd.argoproj.io/sync-options: ServerSideApply=true
-      type: Opaque
+  # - |-
+  #   apiVersion: builtin
+  #   kind: PatchTransformer
+  #   metadata:
+  #     name: add-annotation-user-credentials-secret
+  #   patch: |-
+  #     apiVersion: v1
+  #     kind: Secret
+  #     metadata:
+  #       name: eventendpointmanagement-ibm-eem-user-credentials
+  #       annotations:
+  #         argocd.argoproj.io/sync-options: ServerSideApply=true
+  #     type: Opaque
   - |-
     apiVersion: builtin
     kind: PatchTransformer
