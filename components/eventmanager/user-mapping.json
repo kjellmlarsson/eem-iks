@@ -18,6 +18,25 @@
       "roles": [
         "viewer"
       ]
+    },
+     {
+      "id": "admin@eem.com",
+      "roles": [
+        "author",
+        "admin"
+      ]
+    },
+    {
+      "id": "author@eem.com",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "id": "viewer@eem.com",
+      "roles": [
+        "viewer"
+      ]
     }
   ]
 }
