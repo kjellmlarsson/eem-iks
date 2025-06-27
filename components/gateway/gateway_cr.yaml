@@ -32,12 +32,12 @@ spec:
                   secretKeyRef:
                     key: apiKey
                     name: "gw1-default-gw"
-              - name: GATEWAY_TRUST_PEM
-                valueFrom:
-                  secretKeyRef:
-                    key: tls.crt
-                    name: "gw1-default-gw-certs"
-                    #name: eem-manager-cert-secret
+              #- name: GATEWAY_TRUST_PEM
+              #  valueFrom:
+              #    secretKeyRef:
+              #      key: tls.crt
+              #      name: "gw1-default-gw-certs"
+              #      #name: eem-manager-cert-secret
   
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
