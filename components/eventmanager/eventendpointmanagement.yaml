@@ -29,7 +29,13 @@ spec:
         host: apic.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
         class: public-iks-k8s-nginx
     authConfig:
-      authType: LOCAL
+      authType: OIDC
+      oidcConfig:
+         clientIDKey: client-id
+         clientSecretKey: client-secret
+         discovery: true
+         secretName: oidc-secret
+         site: https://eu-de.appid.cloud.ibm.com/oauth/v4/ba53a653-a64c-4a41-b6ce-4718cbde1497/
     storage:
       type: persistent-claim
       storageClassName: ibmc-vpc-block-10iops-tier
