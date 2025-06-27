@@ -21,23 +21,23 @@ spec:
             env:
               # For communication with the event manager. Either use the supplied value from the generated 
               # gateway CR, or point to secret.
-              #- name: BACKEND_CA_CERTIFICATES
-              #  valueFrom:
-              #    secretKeyRef:
-              #      key: tls.crt
-              #      name: "eventendpointmanagement-ibm-eem-manager"
-              #      #name: eem-manager-cert-secret
+              - name: BACKEND_CA_CERTIFICATES
+                valueFrom:
+                  secretKeyRef:
+                    key: tls.crt
+                    name: "eventendpointmanagement-ibm-eem-manager"
+                    #name: eem-manager-cert-secret
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
                     key: apiKey
                     name: "gw1-default-gw"
-              #- name: GATEWAY_TRUST_PEM
-              #  valueFrom:
-              #    secretKeyRef:
-              #      key: tls.crt
-              #      name: "gw1-default-gw-certs"
-              #      #name: eem-manager-cert-secret
+              - name: GATEWAY_TRUST_PEM
+                valueFrom:
+                  secretKeyRef:
+                    key: tls.crt
+                    name: "gw1-default-gw-certs"
+                    #name: eem-manager-cert-secret
   
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
