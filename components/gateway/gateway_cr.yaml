@@ -54,8 +54,8 @@ spec:
     serverCertificate: tls.crt
     key: tls.key
     trustedCertificates:
-      secretName: eem-manager-cert-secret
-      certificate: tls.crt
+      - secretName: eem-manager-cert-secret
+        certificate: tls.crt
 ---
 apiVersion: v1
 kind: Secret
