@@ -24,9 +24,9 @@ spec:
               - name: BACKEND_CA_CERTIFICATES
                 valueFrom:
                   secretKeyRef:
-                    key: ca.crt
-                    name: "eventendpointmanagement-ibm-eem-manager"
-                    #name: letsencrypt-chain
+                    key: tls.crt
+                    #name: "eventendpointmanagement-ibm-eem-manager"
+                    name: eem-manager-cert-secret
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
