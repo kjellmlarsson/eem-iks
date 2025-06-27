@@ -41,6 +41,10 @@ spec:
       storageClassName: ibmc-vpc-block-10iops-tier
     # See: https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
     tls:
+      secretName: eem-manager-cert-secret
+      serverCertificate: tls.crt
+      caCertificate: tls.crt
+      key: tls.key
       trustedCertificates:
         - certificate: ca.crt
           secretName: apim-cpd
