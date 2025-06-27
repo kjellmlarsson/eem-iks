@@ -7,9 +7,9 @@ resources:
   #- tls/letsencrypt/manager-certificate.yaml
 
 secretGenerator:
-  - name: eventendpointmanagement-ibm-eem-user-credentials
-    files:
-      - user-credentials.json
+  #- name: eventendpointmanagement-ibm-eem-user-credentials
+  #  files:
+  #    - user-credentials.json
 
   - name: eventendpointmanagement-ibm-eem-user-roles
     files:
