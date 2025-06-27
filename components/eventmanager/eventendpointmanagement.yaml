@@ -43,7 +43,7 @@ spec:
     tls:
       secretName: eem-manager-cert-secret
       serverCertificate: tls.crt
-      caCertificate: tls.crt
+      #caCertificate: tls.crt
       key: tls.key
       trustedCertificates:
         - certificate: ca.crt
