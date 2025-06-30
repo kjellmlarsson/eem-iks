@@ -45,7 +45,7 @@ spec:
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
     - name: gateway
-      host: gateway.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
+      host: gw.event-automation-e7d3d93b8b317d269525bf063b24f98d-0000.eu-de.containers.appdomain.cloud
       class: public-iks-k8s-nginx
   
   # Provide either a server certificate or a CA certificate to be used for creating certificates. 
