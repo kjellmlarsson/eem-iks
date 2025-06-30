@@ -57,6 +57,9 @@ spec:
         spec:
           containers:
             - name: manager
+              env:
+              - name: TZ
+                value: "Europe/Stockholm"
               resources:
                 requests:
                   cpu: '0.25'

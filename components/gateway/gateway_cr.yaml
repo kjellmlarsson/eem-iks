@@ -38,6 +38,8 @@ spec:
                     key: tls.crt
                     name: "gw1-default-gw-certs"
                     #name: eem-manager-cert-secret
+              - name: TZ
+                value: "Europe/Stockholm"
   
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-endpoint
   endpoints:
