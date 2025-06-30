@@ -37,7 +37,8 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     key: tls.crt
-                    name: "gw1-default-gw-certs"
+                    #name: "gw1-default-gw-certs"
+                    name: eem-gateway-cert-lec-secret
               - name: TZ
                 value: "Europe/Stockholm"
   
@@ -51,13 +52,11 @@ spec:
   # This is TLS config for the communication between Kafka clients and the gateway
   # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
   tls:
-    #secretName: eem-gateway-cert-lec-secret
-    secretName: "gw1-default-gw-certs"
+    secretName: eem-gateway-cert-lec-secret
+    #secretName: "gw1-default-gw-certs"
     serverCertificate: tls.crt
+    caCertificate: tls.crt
     key: tls.key
-    #trustedCertificates:
-    #  - secretName: eem-manager-cert-secret
-    #    certificate: tls.crt
 ---
 apiVersion: v1
 kind: Secret
