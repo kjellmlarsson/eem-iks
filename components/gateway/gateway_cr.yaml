@@ -24,9 +24,10 @@ spec:
               - name: BACKEND_CA_CERTIFICATES
                 valueFrom:
                   secretKeyRef:
-                    key: tls.crt
-                    name: "eventendpointmanagement-ibm-eem-manager"
-                    #name: eem-manager-cert-secret
+                    #key: tls.crt
+                    #name: "eventendpointmanagement-ibm-eem-manager"
+                    key: x1-root.crt
+                    name: letsencrypt-chain
               - name: API_KEY
                 valueFrom:
                   secretKeyRef:
@@ -37,7 +38,6 @@ spec:
                   secretKeyRef:
                     key: tls.crt
                     name: "gw1-default-gw-certs"
-                    #name: eem-manager-cert-secret
               - name: TZ
                 value: "Europe/Stockholm"
   
