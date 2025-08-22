@@ -51,7 +51,8 @@ spec:
     # See https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-apic
     apic:
       jwks:
-        endpoint: https://apic-clust-5e7e2547-platform-api-cp4i.apps.itz-yk8hp3.hub01-lb.techzone.ibm.com/api/cloud/oauth2/certs
+        #endpoint: https://apic-clust-5e7e2547-platform-api-cp4i.apps.itz-yk8hp3.hub01-lb.techzone.ibm.com/api/cloud/oauth2/certs
+        endpoint: https://apic-clust-48d1a43f-platform-api-cp4i.apps.itz-iw49ak.infra01-lb.fra02.techzone.ibm.com/api/cloud/oauth2/certs
     template:
       pod:
         spec:
