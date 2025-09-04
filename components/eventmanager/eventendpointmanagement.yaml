@@ -40,6 +40,7 @@ spec:
       type: persistent-claim
       storageClassName: ibmc-vpc-block-10iops-tier
       deleteClaim: false
+      existingClaimName: eem-storage
     # See: https://ibm.github.io/event-automation/eem/reference/api-reference/#resource-tls
     tls:
       secretName: eem-manager-cert-secret

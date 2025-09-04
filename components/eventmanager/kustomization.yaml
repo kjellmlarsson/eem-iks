@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - eventendpointmanagement.yaml
   - tls/letsencrypt/
+  - pvc.yaml
  
 secretGenerator:
   # - name: eventendpointmanagement-ibm-eem-user-credentials
