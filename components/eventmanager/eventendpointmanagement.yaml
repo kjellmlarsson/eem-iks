@@ -65,7 +65,7 @@ spec:
               - name: TZ
                 value: "Europe/Stockholm"
               - name: IBM_JAVA_OPTIONS
-                value: "-Djavax.net.debug=ssl:handshake"
+                value: "-Djavax.net.debug=ssl:handshake:verbose"
               resources:
                 requests:
                   cpu: '0.25'
