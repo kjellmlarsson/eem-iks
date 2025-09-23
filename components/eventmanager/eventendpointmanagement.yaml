@@ -68,6 +68,8 @@ spec:
                 value: "-Djavax.net.debug=ssl,handshake,certpath"
               - name: IBM_JAVA_OPTIONS
                 value: "-Djavax.net.debug=ssl,handshake,certpath"
+              - name: JVM_ARGS
+                value: "-Djavax.net.debug=all"                
               resources:
                 requests:
                   cpu: '0.25'
