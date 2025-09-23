@@ -64,12 +64,8 @@ spec:
               env:
               - name: TZ
                 value: "Europe/Stockholm"
-              - name: IBM_JAVA_OPTS
-                value: "-Djavax.net.debug=ssl,handshake,certpath"
               - name: IBM_JAVA_OPTIONS
-                value: "-Djavax.net.debug=ssl,handshake,certpath"
-              - name: JVM_ARGS
-                value: "-Djavax.net.debug=all"                
+                value: "-Djavax.net.debug=ssl:handshake"                
               resources:
                 requests:
                   cpu: '0.25'
