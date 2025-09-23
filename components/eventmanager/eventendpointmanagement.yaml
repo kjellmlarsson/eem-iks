@@ -62,12 +62,14 @@ spec:
           containers:
             - name: manager
               env:
-              - name: FULL_LOG_TRACE
-                value: true
+              #- name: FULL_LOG_TRACE
+              #  value: true
               - name: TZ
                 value: "Europe/Stockholm"
-              - name: IBM_JAVA_OPTIONS
-                value: "-Djavax.net.debug=ssl:handshake"                
+              - name: EEM_JAVA_OPTIONS
+                value: '-Djavax.net.debug=all'
+              - name: OVERRIDE_PRINT_STREAM
+                value: 'false'                
               resources:
                 requests:
                   cpu: '0.25'
