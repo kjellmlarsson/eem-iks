@@ -67,7 +67,7 @@ spec:
               - name: TZ
                 value: "Europe/Stockholm"
               - name: EEM_JAVA_OPTIONS
-                value: '-Djavax.net.debug=all'
+                value: '-Djavax.net.debug=ssl'
               - name: OVERRIDE_PRINT_STREAM
                 value: 'false'                
               resources:
