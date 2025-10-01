@@ -6,19 +6,19 @@ resources:
   - tls/letsencrypt/
   - pvc.yaml
  
-secretGenerator:
+#secretGenerator:
   # - name: eventendpointmanagement-ibm-eem-user-credentials
   #   files:
   #     - user-credentials.json
 
-  - name: eventendpointmanagement-ibm-eem-user-roles
-    files:
-      - user-mapping.json
+  #- name: eventendpointmanagement-ibm-eem-user-roles
+  #  files:
+  #    - user-mapping.json
 
-generatorOptions:
-  disableNameSuffixHash: true
+#generatorOptions:
+#  disableNameSuffixHash: true
 
-transformers:
+#transformers:
   # - |-
   #   apiVersion: builtin
   #   kind: PatchTransformer
@@ -32,16 +32,16 @@ transformers:
   #       annotations:
   #         argocd.argoproj.io/sync-options: ServerSideApply=true
   #     type: Opaque
-  - |-
-    apiVersion: builtin
-    kind: PatchTransformer
-    metadata:
-      name: add-annotation-roles-secret
-    patch: |-
-      apiVersion: v1
-      kind: Secret
-      metadata:
-        name: eventendpointmanagement-ibm-eem-user-roles
-        annotations:
-          argocd.argoproj.io/sync-options: ServerSideApply=true
-      type: Opaque
+  #- |-
+  #  apiVersion: builtin
+  #  kind: PatchTransformer
+  #  metadata:
+  #    name: add-annotation-roles-secret
+  #  patch: |-
+  #    apiVersion: v1
+  #    kind: Secret
+  #    metadata:
+  #      name: eventendpointmanagement-ibm-eem-user-roles
+  #      annotations:
+  #        argocd.argoproj.io/sync-options: ServerSideApply=true
+  #    type: Opaque
