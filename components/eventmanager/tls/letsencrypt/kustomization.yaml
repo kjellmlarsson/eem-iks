@@ -5,6 +5,7 @@ kind: Kustomization
 
 resources:
   - letsencrypt-issuer.yaml
+  - manager-certificate.yaml
 
 secretGenerator:
 - name: letsencrypt-chain
