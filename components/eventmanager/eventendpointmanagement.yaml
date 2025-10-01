@@ -66,10 +66,10 @@ spec:
               #  value: true
               - name: TZ
                 value: "Europe/Stockholm"
-              - name: EEM_JAVA_OPTIONS
-                value: '-Djavax.net.debug=all'
-              - name: OVERRIDE_PRINT_STREAM
-                value: 'false'                
+              #- name: EEM_JAVA_OPTIONS
+              #  value: '-Djavax.net.debug=all'
+              #- name: OVERRIDE_PRINT_STREAM
+              #  value: 'false'                
               resources:
                 requests:
                   cpu: '0.25'
