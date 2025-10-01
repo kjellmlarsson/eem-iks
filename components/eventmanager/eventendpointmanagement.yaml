@@ -35,6 +35,7 @@ spec:
          clientSecretKey: client-secret
          discovery: true
          secretName: oidc-secret
+         userGroupClaimPointer: "/roles"
          site: https://eu-de.appid.cloud.ibm.com/oauth/v4/ba53a653-a64c-4a41-b6ce-4718cbde1497/
     storage:
       type: persistent-claim
