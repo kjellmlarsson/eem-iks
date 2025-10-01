@@ -19,8 +19,15 @@
         "viewer"
       ]
     },
-     {
+    {
       "id": "0ced7431-d186-4d09-953f-283760c36fb9",
+      "roles": [
+        "author",
+        "admin"
+      ]
+    },    
+    {
+      "id": "e33e7ab8-5a9c-4f2b-81fc-6fc0ab6152f6",
       "roles": [
         "author",
         "admin"
